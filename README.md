@@ -55,19 +55,15 @@ venv\\Scripts\\activate    # Windows
 ```
 
 
-
+Abhängigkeiten installieren:
+```plaintext
+pip install -r requirements.txt
+```
 
 
 Docker-Compose ausführen (stellt die Datenbank bereit):
 ```plaintext
 docker-compose up -d
-```
-
-
-
-Abhängigkeiten installieren:
-```plaintext
-pip install -r requirements.txt
 ```
 
 
