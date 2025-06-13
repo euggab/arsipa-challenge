@@ -21,14 +21,16 @@ models:
       - name: gesellschaft_name
         tests:
           - not_null
+      - name: standort
+        tests:
+          - not_null
+      - name: branche
+        tests:
+          - not_null
 
   - name: bronze_mitarbeiter
     description: "Raw data about employees"
     columns:
-      - name: mitarbeiter_id
-        tests:
-          - not_null
-          - unique
       - name: gesellschaft_id
         tests:
           - not_null
@@ -39,16 +41,9 @@ models:
   - name: bronze_umsatz
     description: "Raw sales data"
     columns:
-      - name: umsatz_id
+      - name: gesellschaft_id
         tests:
-          - not_null
-          - unique
-      - name: mitarbeiter_id
-        tests:
-          - not_null
-          - relationships:
-              to: ref('bronze_mitarbeiter')
-              field: mitarbeiter_id
-      - name: umsatz_betrag
+          - not_null  
+      - name: umsatz_eur
         tests:
           - not_null
