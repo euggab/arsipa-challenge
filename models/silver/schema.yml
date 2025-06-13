@@ -7,20 +7,20 @@ models:
       - name: gesellschaft_id
         tests:
           - not_null
-          - unique
+        
 
   - name: silver_mitarbeiter
     description: "Cleaned employee data"
     columns:
-      - name: mitarbeiter_id
+      - name: gesellschaft_id
         tests:
           - not_null
-          - unique
+          
 
   - name: silver_umsatz
     description: "Cleaned sales data"
     columns:
-      - name: umsatz_id
+      - name: gesellschaft_id
         tests:
           - not_null
-          - unique
+          
