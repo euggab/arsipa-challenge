@@ -1,0 +1,10 @@
+# models/bronze/schema.yml
+
+version: 2
+
+sources:
+  - name: public     
+    tables:
+      - name: raw_umsatz
+      - name: raw_gesellschaften
+      - name: raw_mitarbeiter

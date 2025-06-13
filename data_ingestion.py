@@ -10,9 +10,9 @@ conn_params = {
 }
 
 csv_files = {
-    "bronze_umsatz": "data/umsatz.csv",
-    "bronze_gesellschaften": "data/gesellschaften.csv",
-    "bronze_mitarbeiter": "data/mitarbeiter.csv"
+    "raw_umsatz": "data/umsatz.csv",
+    "raw_gesellschaften": "data/gesellschaften.csv",
+    "raw_mitarbeiter": "data/mitarbeiter.csv"
 }
 
 def create_table_if_not_exists(cursor, table_name, create_sql):
@@ -30,20 +30,20 @@ def ingest_csv_to_postgres(table_name, csv_file, conn):
     csv_buffer.seek(0)
 
     with conn.cursor() as cur:
-        if table_name == "bronze_umsatz":
+        if table_name == "raw_umsatz":
             create_table_if_not_exists(cur, table_name, """
                 gesellschaft_id VARCHAR(50),
                 monat VARCHAR(10),
                 umsatz_eur NUMERIC
             """)
-        elif table_name == "bronze_gesellschaften":
+        elif table_name == "raw_gesellschaften":
             create_table_if_not_exists(cur, table_name, """
                 gesellschaft_id VARCHAR(50) PRIMARY KEY,
                 gesellschaft_name VARCHAR(255),
                 standort VARCHAR(255),
                 branche VARCHAR(255)
             """)
-        elif table_name == "bronze_mitarbeiter":
+        elif table_name == "raw_mitarbeiter":
             create_table_if_not_exists(cur, table_name, """
                 gesellschaft_id VARCHAR(50),
                 monat VARCHAR(10),
