@@ -1,0 +1,12 @@
+arsipa_bi:
+  outputs:
+    dev:
+      dbname: arsipa_bi
+      host: '127.0.0.1'
+      pass: admin
+      port: 5432
+      schema: public
+      threads: 1
+      type: postgres
+      user: admin
+  target: dev
