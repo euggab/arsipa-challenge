@@ -8,3 +8,47 @@ sources:
       - name: raw_umsatz
       - name: raw_gesellschaften
       - name: raw_mitarbeiter
+
+
+models:
+  - name: bronze_gesellschaften
+    description: "Raw data about companies"
+    columns:
+      - name: gesellschaft_id
+        tests:
+          - not_null
+          - unique
+      - name: gesellschaft_name
+        tests:
+          - not_null
+
+  - name: bronze_mitarbeiter
+    description: "Raw data about employees"
+    columns:
+      - name: mitarbeiter_id
+        tests:
+          - not_null
+          - unique
+      - name: gesellschaft_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('bronze_gesellschaften')
+              field: gesellschaft_id
+
+  - name: bronze_umsatz
+    description: "Raw sales data"
+    columns:
+      - name: umsatz_id
+        tests:
+          - not_null
+          - unique
+      - name: mitarbeiter_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('bronze_mitarbeiter')
+              field: mitarbeiter_id
+      - name: umsatz_betrag
+        tests:
+          - not_null

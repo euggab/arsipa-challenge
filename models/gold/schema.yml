@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: kpi_umsatz_pro_mitarbeiter
+    description: "Aggregated KPI of revenue per employee"
+    columns:
+      - name: mitarbeiter_id
+        tests:
+          - not_null
+      - name: umsatz_summe
+        tests:
+          - not_null
