@@ -17,7 +17,7 @@ gesellschaften = pd.DataFrame({
     "standort": [fake.city() for _ in range(n_gesellschaften)],
     "branche": np.random.choice(["Arbeitsmedizin", "Arbeitssicherheit", "Umweltschutz"], size=n_gesellschaften)
 })
-gesellschaften.to_csv("gesellschaften.csv", index=False)
+gesellschaften.to_csv("data/gesellschaften.csv", index=False)
 
 # === 2. umsatz.csv ===
 umsatz = pd.DataFrame([
@@ -29,7 +29,7 @@ umsatz = pd.DataFrame([
     for gid in range(1, n_gesellschaften + 1)
     for monat in monate
 ])
-umsatz.to_csv("umsatz.csv", index=False)
+umsatz.to_csv("data/umsatz.csv", index=False)
 
 # === 3. mitarbeiter.csv ===
 mitarbeiter = pd.DataFrame([
@@ -41,6 +41,6 @@ mitarbeiter = pd.DataFrame([
     for gid in range(1, n_gesellschaften + 1)
     for monat in monate
 ])
-mitarbeiter.to_csv("mitarbeiter.csv", index=False)
+mitarbeiter.to_csv("data/mitarbeiter.csv", index=False)
 
 print("✅ Dummy-Daten wurden erfolgreich generiert!")
