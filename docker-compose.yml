@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: arsipa_bi
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
